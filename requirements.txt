@@ -8,8 +8,11 @@ nltk
 sentence-transformers
 chromadb
 langchain
+langchain-core
+langchain-google-genai
 langchain-community
 langchain-huggingface
+langchain-chroma
 transformers
 torch
 fastapi
@@ -20,5 +23,7 @@ tqdm
 jupyter
 kagglehub
 google-generativeai
+google-genai
 python-dotenv
-
+pyarrow
+xgboost
