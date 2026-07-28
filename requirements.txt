@@ -27,3 +27,9 @@ google-genai
 python-dotenv
 pyarrow
 xgboost
+pydantic
+joblib
+requests
+loguru
+httpx
+pytest
