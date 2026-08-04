@@ -33,3 +33,5 @@ requests
 loguru
 httpx
 pytest
+python-multipart
+pydantic-settings

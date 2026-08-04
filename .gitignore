@@ -53,3 +53,5 @@ aiml_project.egg-info
 
 __pycache__
 __init__.py
+
+frontend/
