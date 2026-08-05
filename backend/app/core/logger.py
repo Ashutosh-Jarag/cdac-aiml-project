@@ -1,5 +1,5 @@
-from loguru import logger
 import sys
+from loguru import logger
 
 logger.remove()
 
@@ -8,5 +8,14 @@ logger.add(
     level="INFO",
     format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
            "<level>{level}</level> | "
-           "{message}"
+           "{message}",
 )
+
+logger.add(
+    "logs/researchai.log",
+    rotation="10 MB",
+    retention="10 days",
+    level="INFO",
+)
+
+__all__ = ["logger"]

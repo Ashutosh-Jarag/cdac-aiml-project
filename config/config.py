@@ -24,3 +24,10 @@ RAW_DATA_PATH = RAW_DATA_DIR / "arxiv-metadata-oai-snapshot.json"
 
 # Sample size during development
 SAMPLE_SIZE = 1000
+
+DB_HOST: str
+DB_PORT: int
+DB_NAME: str
+DB_USER: str
+DB_PASSWORD: str
+

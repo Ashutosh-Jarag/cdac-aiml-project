@@ -1,4 +1,5 @@
 from app.core.config import settings
+from services.providers.gemini_provider import GeminiProvider
 
 
 class AIManager:
@@ -9,16 +10,14 @@ class AIManager:
         api_key: str | None = None,
     ):
 
-        provider = provider or settings.DEFAULT_AI_PROVIDER
+        provider = (provider or "gemini").strip().lower()
 
         if provider == "gemini":
-            from services.gemini_service import GeminiService
-
-            return GeminiService(
-                api_key=api_key or settings.GEMINI_API_KEY
+            return GeminiProvider(
+                api_key or settings.GEMINI_API_KEY
             )
 
-        raise ValueError(f"Unsupported AI Provider: {provider}")
+        raise ValueError(f"Unsupported provider: {provider}")
 
 
 ai_manager = AIManager()

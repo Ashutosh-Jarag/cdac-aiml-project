@@ -29,6 +29,14 @@ The application combines:
 
 ==================================================
 
+DESIGN
+
+Use "Sreda" font or a similar modern sans-serif font.
+
+The color theme should be inspired by the project's branding images.
+
+==================================================
+
 TECH STACK
 
 React

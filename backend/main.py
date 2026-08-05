@@ -4,7 +4,15 @@ from api.routes import api_router
 from app.middleware.exception_handler import register_exception_handlers
 from app.core.model_loader import model_loader
 
+from app.core.exceptions import AppException
+from app.core.exception_handler import (
+    app_exception_handler,
+    generic_exception_handler,
+)
+
 from app.core.config import settings
+
+#import app.core.langsmith
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -13,10 +21,22 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.CORS_ORIGINS],
+    allow_origins=[
+        "http://localhost:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+)
+
+app.add_exception_handler(
+    AppException,
+    app_exception_handler,
+)
+
+app.add_exception_handler(
+    Exception,
+    generic_exception_handler,
 )
 
 

@@ -51,7 +51,31 @@ models/**/*.joblib
 aiml_project.egg-info
 
 
-__pycache__
-__init__.py
 
-frontend/
+
+frontend/node_modules/
+frontend/dist/
+
+
+# Chroma vector database
+backend/chroma_db/
+
+# Uploaded files
+backend/uploads/
+
+
+
+# Logs
+backend/logs/
+
+# Demo / experiments
+backend/demo/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db   
