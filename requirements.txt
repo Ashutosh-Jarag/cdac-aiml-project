@@ -35,3 +35,5 @@ httpx
 pytest
 python-multipart
 pydantic-settings
+
+// Documents classification
