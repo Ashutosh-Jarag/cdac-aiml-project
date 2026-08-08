@@ -1,0 +1,5 @@
+Artificial Intelligence is transforming the world.
+
+Large Language Models are becoming powerful.
+
+FastAPI is commonly used for AI backends.

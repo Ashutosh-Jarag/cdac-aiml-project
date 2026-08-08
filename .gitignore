@@ -1,17 +1,16 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# =========================================================
+# Python
+# =========================================================
 
-# Distribution / packaging / egg-info
+__pycache__/
+*.py[cod]
+*$py.class
+
 *.egg-info/
 build/
 dist/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -25,27 +24,99 @@ venv/
 ENV/
 env/
 
-# Jupyter Notebooks checkpoints
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
+# =========================================================
+# Environment / Secrets
+# =========================================================
 
-# Local configuration / secrets
 .env
 .env.*
-.secrets
+!.env.example
 
-# Project-specific paths
+.secrets/
+
+# =========================================================
+# Jupyter
+# =========================================================
+
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# =========================================================
+# Data / Logs
+# =========================================================
+
 data/
 logs/
-
-# Model artifacts (ignore large serialized model files)
-models/**/*.pkl
-models/**/*.pt
-models/**/*.h5
-models/**/*.bin
-models/**/*.onnx
-models/**/*.joblib
 *.log
 
+backend/logs/
 
-aiml_project.egg-info
+# =========================================================
+# ML Model Artifacts
+# =========================================================
+
+# models/**/*.pkl
+# models/**/*.pt
+# models/**/*.h5
+# models/**/*.bin
+# models/**/*.onnx
+# models/**/*.joblib
+
+# If your actual models are inside backend/services/ml/models
+# backend/services/ml/models/**/*.pkl
+# backend/services/ml/models/**/*.pt
+# backend/services/ml/models/**/*.h5
+# backend/services/ml/models/**/*.bin
+# backend/services/ml/models/**/*.onnx
+# backend/services/ml/models/**/*.joblib
+
+# =========================================================
+# Vector Databases
+# =========================================================
+
+backend/chroma_db/
+chroma_db/
+chroma_db
+
+# =========================================================
+# Uploaded Files
+# =========================================================
+
+backend/uploads/
+
+# =========================================================
+# Demo / Experiments
+# =========================================================
+
+backend/demo/
+
+# =========================================================
+# Frontend
+# =========================================================
+
+frontend/node_modules/
+frontend/dist/
+
+# =========================================================
+# IDE
+# =========================================================
+
+.vscode/
+.idea/
+
+# =========================================================
+# OS
+# =========================================================
+
+.DS_Store
+Thumbs.db
+
+# =========================================================
+# Python tooling
+# =========================================================
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

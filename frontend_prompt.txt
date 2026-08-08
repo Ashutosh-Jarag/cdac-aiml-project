@@ -1,0 +1,596 @@
+You are a Senior Frontend Engineer with expertise in React, TypeScript, Vite, TailwindCSS, clean architecture, scalable component design, and enterprise SaaS applications.
+
+Your task is ONLY to build the frontend.
+
+The backend already exists and exposes REST APIs through FastAPI.
+
+DO NOT implement backend logic.
+DO NOT create fake ML logic inside components.
+DO NOT mix frontend and backend responsibilities.
+
+The frontend must consume APIs through a centralized API layer.
+
+==================================================
+
+PROJECT
+
+ResearchAI
+AI Powered Research Intelligence Platform
+
+The application combines:
+
+• Research Paper Search
+• AI Assistant (RAG)
+• Research Paper Summarization
+• Document Classification
+• Publication Prediction
+• Paper Recommendation
+• Upload PDF & Chat
+
+==================================================
+
+DESIGN
+
+Use "Sreda" font or a similar modern sans-serif font.
+
+The color theme should be inspired by the project's branding images.
+
+==================================================
+
+TECH STACK
+
+React
+
+TypeScript
+
+Vite
+
+TailwindCSS
+
+React Router
+
+Axios
+
+React Hook Form
+
+React Query (TanStack Query)
+
+React Markdown
+
+Lucide Icons
+
+Framer Motion
+
+==================================================
+
+IMPORTANT RULES
+
+This project will continue to evolve.
+
+Therefore:
+
+Everything must be modular.
+
+Every page must be independent.
+
+Every component reusable.
+
+Never hardcode API URLs.
+
+Never hardcode responses.
+
+Everything should come from the backend.
+
+==================================================
+
+FOLDER STRUCTURE
+
+src/
+
+components/
+
+layout/
+
+Navbar
+
+Sidebar
+
+Footer
+
+common/
+
+Button
+
+Input
+
+Card
+
+Loader
+
+EmptyState
+
+ErrorState
+
+SearchBar
+
+PaperCard
+
+ChatBubble
+
+UploadZone
+
+PredictionCard
+
+ClassificationCard
+
+RecommendationCard
+
+SummaryCard
+
+ReferenceList
+
+pages/
+
+Landing
+
+Dashboard
+
+Search
+
+Assistant
+
+Upload
+
+ML
+
+Settings
+
+hooks/
+
+services/
+
+api.ts
+
+search.ts
+
+classification.ts
+
+publication.ts
+
+recommendation.ts
+
+summary.ts
+
+rag.ts
+
+upload.ts
+
+types/
+
+utils/
+
+constants/
+
+App.tsx
+
+main.tsx
+
+==================================================
+
+ARCHITECTURE
+
+Pages should NEVER call axios directly.
+
+Pages
+
+↓
+
+Hooks
+
+↓
+
+API Services
+
+↓
+
+Axios
+
+↓
+
+Backend
+
+Example
+
+Search.tsx
+
+↓
+
+useSearch()
+
+↓
+
+searchService.search()
+
+↓
+
+axios.post()
+
+Nothing else.
+
+==================================================
+
+API LAYER
+
+Create a reusable axios instance.
+
+Example
+
+api.ts
+
+- Base URL
+- Timeout
+- Interceptors
+- Error handling
+
+Every feature gets its own service.
+
+Example
+
+classificationService.ts
+
+publicationService.ts
+
+recommendationService.ts
+
+searchService.ts
+
+summaryService.ts
+
+ragService.ts
+
+uploadService.ts
+
+==================================================
+
+DO NOT WRITE
+
+axios.post(...)
+
+inside components.
+
+==================================================
+
+EVERY PAGE MUST HAVE
+
+Loading state
+
+Error state
+
+Empty state
+
+Success state
+
+Responsive layout
+
+==================================================
+
+SEARCH PAGE
+
+Contains
+
+Large Search Box
+
+Filters placeholder
+
+Result Cards
+
+Each card contains
+
+Title
+
+Authors
+
+Category
+
+Abstract
+
+Similarity
+
+Buttons
+
+View
+
+Summarize
+
+Recommend
+
+Ask AI
+
+Predict Publication
+
+Classify
+
+The buttons should call backend APIs.
+
+==================================================
+
+AI ASSISTANT
+
+ChatGPT style layout.
+
+Left
+
+Conversation history
+
+Right
+
+Chat window
+
+Input
+
+Send Button
+
+Streaming ready architecture
+
+Support markdown rendering
+
+Support references returned by backend
+
+==================================================
+
+UPLOAD PAGE
+
+Drag & Drop
+
+Upload Button
+
+PDF Preview placeholder
+
+Summary Card
+
+Chat Section
+
+Everything communicates with backend.
+
+No PDF processing on frontend.
+
+==================================================
+
+ML PAGE
+
+Contains two independent tools.
+
+Document Classification
+
+Publication Prediction
+
+Each inside separate cards.
+
+Each submits to backend.
+
+Display result cards.
+
+==================================================
+
+LANDING PAGE
+
+Modern SaaS Landing.
+
+Sections
+
+Hero
+
+Features
+
+Workflow
+
+Why ResearchAI
+
+CTA
+
+Footer
+
+DO NOT decide colors.
+
+Use Tailwind utility classes only.
+
+==================================================
+
+DASHBOARD
+
+Cards
+
+Search Papers
+
+Upload PDF
+
+AI Assistant
+
+Document Classification
+
+Publication Prediction
+
+Recommendations
+
+Recent Activity placeholder
+
+==================================================
+
+SETTINGS PAGE
+
+Backend URL
+
+Theme placeholder
+
+API Status
+
+Version
+
+Future settings placeholders
+
+==================================================
+
+STATE MANAGEMENT
+
+Use React Query.
+
+Every API call
+
+Query
+
+Mutation
+
+Invalidation
+
+Proper loading state
+
+==================================================
+
+TYPE SAFETY
+
+Every API response must have interfaces.
+
+Never use "any".
+
+Create dedicated types.
+
+Example
+
+Paper
+
+ClassificationResponse
+
+PublicationResponse
+
+Recommendation
+
+Summary
+
+ChatMessage
+
+==================================================
+
+ERROR HANDLING
+
+Display friendly UI.
+
+Never crash.
+
+Handle
+
+404
+
+500
+
+Timeout
+
+Network failure
+
+Validation errors
+
+==================================================
+
+COMPONENT RULES
+
+Each component under 200 lines.
+
+Split large components.
+
+Reusable.
+
+Single Responsibility Principle.
+
+==================================================
+
+CODE QUALITY
+
+No duplicated code.
+
+Reusable hooks.
+
+Reusable cards.
+
+Clean props.
+
+Strict typing.
+
+Proper naming.
+
+Meaningful folder structure.
+
+==================================================
+
+ROUTING
+
+/
+
+Landing
+
+/dashboard
+
+/search
+
+/upload
+
+/assistant
+
+/ml
+
+/settings
+
+==================================================
+
+BACKEND INTEGRATION
+
+The frontend must NEVER assume response shapes.
+
+All API responses must come from interfaces.
+
+Keep all request payloads isolated inside service files.
+
+If backend changes later, only service files should require updates.
+
+==================================================
+
+BACKEND ENDPOINTS
+
+GET /
+
+GET /health
+
+POST /search
+
+POST /classification
+
+POST /publication
+
+POST /recommendation
+
+POST /summary
+
+POST /rag
+
+POST /upload
+
+==================================================
+
+IMPORTANT
+
+Do not invent backend endpoints.
+
+Do not rename endpoints.
+
+Do not create fake APIs.
+
+Do not generate backend code.
+
+==================================================
+
+FINAL GOAL
+
+Generate production-quality frontend code that is easy to debug, easy to extend, follows clean architecture, separates concerns correctly, and can integrate with the existing FastAPI backend without requiring major changes.
+
+use Sreda as font or similar and use image color them only color theme 
+also add in setting api text box where i can add my gemini or any ai model api thorugh ai also 
+create all frontend under folder named frontend 
+dont chagne anything else 

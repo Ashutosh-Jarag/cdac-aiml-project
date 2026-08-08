@@ -1,0 +1,23 @@
+1.
+Attention-Based Deep Learning for Medical Image Classification 
+
+This paper proposes a transformer-based deep learning architecture for medical image classification. The model uses self-attention mechanisms and convolutional neural networks to improve diagnostic accuracy on chest X-ray datasets while reducing computational complexity.
+
+
+2.
+Graph Neural Networks for Social Network Analysis
+
+
+We introduce a graph neural network framework for node classification and community detection in large social networks. Experimental results demonstrate improved accuracy compared to existing graph embedding techniques.
+
+
+3.
+Efficient Algorithms for Solving Sparse Matrix Equations
+
+
+This paper presents new iterative numerical methods for solving sparse linear systems. The proposed algorithms significantly reduce computational complexity while maintaining numerical stability.
+
+4.
+Macroeconomic Impact of Inflation on Emerging Markets
+
+We develop a Bayesian statistical framework for analyzing high dimensional datasets using hierarchical priors and Markov Chain Monte Carlo sampling techniques.
