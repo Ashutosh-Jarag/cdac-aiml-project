@@ -1,3 +1,23 @@
+"""
+FILE CONTENTS & OVERVIEW:
+-------------------------
+This file defines the `UploadService` class, which manages the complete document ingestion pipeline.
+It handles session creation, document loading, text chunking, embedding generation, vector storage persistence,
+database record creation, classification predictions, and metadata payload formatting.
+
+Pipeline Steps:
+  1. Session Initialization: Creates a new `ChatSession` record in the database.
+  2. Document Parsing: Parses the input file using `document_loader`.
+  3. Chunking & Embedding: Splits document content into chunked text segments and computes vector embeddings.
+  4. Storage Persistence: Indexes chunks and vectors in ChromaDB and records metadata in `document_repository`.
+  5. Machine Learning Insights: Runs document classification (`classification_service`) and generates search resource links.
+
+Exports:
+  - upload_service: Singleton instance of `UploadService` for application-wide file uploading workflow processing.
+"""
+
+from typing import Any
+
 from app.core.exceptions import AppException
 from app.core.logger import logger
 from app.repositories.document_repository import document_repository
@@ -10,12 +30,29 @@ from services.ml.classification_service import classification_service
 
 
 class UploadService:
+    """
+    Service class orchestrating document upload, text processing, vector indexing, and database persistence workflows.
+    """
 
     def upload(
         self,
-        db,
+        db: Any,
         file_path: str,
-    ):
+    ) -> dict[str, Any]:
+        """
+        Executes the file ingestion pipeline and returns structured document ingestion metadata.
+
+        Args:
+            db (Session): Active SQLAlchemy database session.
+            file_path (str): File system path to the uploaded document.
+
+        Returns:
+            dict[str, Any]: Dictionary containing session ID, document metadata, machine learning classification, 
+                            and web resource search links.
+
+        Raises:
+            AppException: If the uploaded file cannot be read or parsed (400).
+        """
         logger.info(f"Uploading file: {file_path}")
 
         session = session_repository.create(db)
@@ -93,17 +130,19 @@ class UploadService:
             "web_resources": [
                 {
                     "title": f"Google search for {source}",
-                    "url": f"https://www.google.com/search?q={source}"
+                    "url": f"https://www.google.com/search?q={source}",
                 },
                 {
                     "title": "Google Scholar",
-                    "url": f"https://scholar.google.com/scholar?q={source}"
+                    "url": f"https://scholar.google.com/scholar?q={source}",
                 },
                 {
                     "title": "arXiv Search",
-                    "url": f"https://arxiv.org/search/?query={source}&searchtype=all"
-                }
+                    "url": f"https://arxiv.org/search/?query={source}&searchtype=all",
+                },
             ],
         }
 
+
+# Global singleton instance of UploadService
 upload_service = UploadService()
